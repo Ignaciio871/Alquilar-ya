@@ -1,0 +1,94 @@
+/* Fondo degradado azul-verde */
+.bg-gradient {
+    background: linear-gradient(135deg, #0072ff, #00c853);
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* MENÚ DE NAVEGACIÓN */
+  nav.bg-primary {
+    /* ya definido con Bootstrap bg-primary */
+    /* flex y sombras */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+  }
+  
+  nav.bg-primary img {
+    height: 50px;
+  }
+  
+  nav.bg-primary nav a {
+    margin: 0 1rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  
+  nav.bg-primary nav a:hover {
+    color: #00c853; /* verde */
+  }
+  
+  /* FORMULARIO */
+  .form-container {
+    background: white;
+    border-radius: 15px;
+    padding: 2.5rem;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 200, 83, 0.3);
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+  
+  h2 {
+    color: #0072ff;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  label {
+    font-weight: 600;
+    color: #004bb5;
+  }
+  
+  .btn-submit {
+    background-color: #00c853;
+    border: none;
+    font-weight: 700;
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-submit:hover {
+    background-color: #007e33;
+  }
+  
+  .form-control:focus {
+    border-color: #0072ff;
+    box-shadow: 0 0 8px #0072ffaa;
+  }
+  
+  .alert-success {
+    background-color: #00c853;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 1rem;
+    display: none;
+  }
+  
+  

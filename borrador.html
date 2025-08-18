@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito de Compras</title>
+  <link rel="stylesheet" href="borrador.css">
+</head>
+<body>
+
+  <header>
+    <h1>Mi Tienda</h1>
+    <button id="verCarrito">🛒 Carrito (<span id="contadorCarrito">0</span>)</button>
+  </header>
+
+  <main>
+    <section id="productosContainer">
+      <!-- Los productos se cargarán dinámicamente con JS -->
+    </section>
+  </main>
+
+  <!-- Modal Carrito -->
+  <div id="modalCarrito" class="modal">
+    <div class="modal-contenido">
+      <h2>Tu Carrito</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="carritoTabla">
+          <!-- Items del carrito -->
+        </tbody>
+      </table>
+      <h3>Total: $<span id="totalCarrito">0</span></h3>
+      <button id="finalizarCompra">Finalizar Compra</button>
+      <button id="cerrarCarrito">Cerrar</button>
+    </div>
+  </div>
+
+  <script src="borrador.js"></script>
+</body>
+</html>
+
