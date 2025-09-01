@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tienda Web - Carrito de Compras</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+  
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="stiles.css" />
+</head>
+<body class="bg-gradient">
+
+  <!-- MENÚ DE NAVEGACIÓN SUPERIOR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Alquilar Ya</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                </ul>
+                 
+            </div>
+        </div>
+    </nav>
+
+<header></header>
+<main id="boxpaneledecontrol"></main>
+<h1>panel de control</h1>
+<div>
+    <label for=""></label>
+</div>
+
+  <!-- Contenedor Productos -->
+  <main class="container my-5">
+    <section id="productosContainer" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <!-- Productos cargados dinámicamente -->
+    </section>
+  </main>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contacto - Reserva tu Salón</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="contacto.css" />
+</head>
+<body class="bg-gradient">
+
+  <!-- MENÚ DE NAVEGACIÓN SUPERIOR -->
+ 
+
+ <section class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4">Ingresar</h2>
+      <form id="form-contacto">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Email</label>
+          <input type="email"   class="form-control" id="nombre" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" id="email" required>
+          <input type="checkbox">
+        </div>
+        <div class="mb-3">
+        </div>
+        <button type="submit" class="btn btn-primary">ingresar</button>
+      </form>
+      <div id="alerta6" class="alert alert-success mt-3 d-none" role="alert">
+        ¡Mensaje enviado correctamente!
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <script>
+    document.getElementById("form-contacto").addEventListener("submit", function (e) {
+      e.preventDefault();
+      document.getElementById("alerta").classList.remove("d-none");
+      this.reset();
+    });
+  </script>
+  <script src="paneledecontrol.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
