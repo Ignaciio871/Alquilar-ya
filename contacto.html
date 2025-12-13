@@ -1,70 +1,229 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contacto - Reserva tu Salón</title>
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
-
-  <!-- Estilos personalizados -->
-  <link rel="stylesheet" href="contacto.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Reserva tu Salón | Spathios</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="contacto.css">
 </head>
-<body class="bg-gradient">
+<body>
 
-  <!-- MENÚ DE NAVEGACIÓN SUPERIOR -->
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Alquilar Ya</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
-                </ul>
-                 <button id="verCarrito" class="btn btn-success d-flex align-items-center gap-2">
-                    <span class="fs-4">🛒</span> Carrito <span id="contadorCarrito" class="badge bg-light text-dark rounded-pill ms-1">0</span>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-
- <section class="py-5 bg-light">
+  <!-- MENÚ DE NAVEGACIÓN -->
+  <nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container">
-      <h2 class="text-center mb-4">Contacto</h2>
-      <form id="form-contacto">
-        <div class="mb-3">
-          <label for="nombre" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="nombre" required>
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" required>
-        </div>
-        <div class="mb-3">
-          <label for="mensaje" class="form-label">Mensaje</label>
-          <textarea class="form-control" id="mensaje" rows="4" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
-      </form>
-      <div id="alerta6" class="alert alert-success mt-3 d-none" role="alert">
-        ¡Mensaje enviado correctamente!
+      <a class="navbar-brand text-white logo-text" href="index.html">
+        🎉 SPATHIOS
+      </a>
+      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link btn-volver" href="index.html">← Volver al Inicio</a>
+          </li>
+        </ul>
       </div>
     </div>
-  </section>
+  </nav>
 
-  <script>
-    document.getElementById("form-contacto").addEventListener("submit", function (e) {
-      e.preventDefault();
-      document.getElementById("alerta").classList.remove("d-none");
-      this.reset();
-    });
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- FORMULARIO DE CONTACTO -->
+  <div class="container">
+    <div class="form-container">
+      <h2>📋 Formulario de Reserva</h2>
+      <p class="form-subtitle">Completá tus datos y nos contactaremos a la brevedad</p>
+
+      <!-- Alerta de éxito -->
+      <div id="alertaExito" class="alerta-exito">
+        ✅ ¡Formulario enviado con éxito! Nos contactaremos pronto.
+      </div>
+
+      <form id="formularioReserva" novalidate>
+        
+        <!-- Nombre Completo -->
+        <div class="mb-3">
+          <label for="nombre" class="form-label">
+            Nombre Completo <span class="required">*</span>
+          </label>
+          <input 
+            type="text" 
+            class="form-control" 
+            id="nombre" 
+            placeholder="Ej: Juan Pérez"
+            required
+          >
+          <div class="invalid-feedback">Por favor ingresá tu nombre completo</div>
+        </div>
+
+        <!-- Email -->
+        <div class="mb-3">
+          <label for="email" class="form-label">
+            Email <span class="required">*</span>
+          </label>
+          <input 
+            type="email" 
+            class="form-control" 
+            id="email" 
+            placeholder="tu@email.com"
+            required
+          >
+          <div class="invalid-feedback">Por favor ingresá un email válido</div>
+        </div>
+
+        <!-- Teléfono -->
+        <div class="mb-3">
+          <label for="telefono" class="form-label">
+            Teléfono / WhatsApp <span class="required">*</span>
+          </label>
+          <input 
+            type="tel" 
+            class="form-control" 
+            id="telefono" 
+            placeholder="Ej: 11 1234-5678"
+            required
+          >
+          <div class="invalid-feedback">Por favor ingresá tu teléfono</div>
+        </div>
+
+        <!-- Salón -->
+        <div class="mb-3">
+          <label for="salon" class="form-label">
+            Salón de Interés <span class="required">*</span>
+          </label>
+          <select class="form-select" id="salon" required>
+            <option value="">Seleccioná un salón...</option>
+            <option value="Salón Elegance">Salón Elegance (150 personas)</option>
+            <option value="Salón Fiesta">Salón Fiesta (200 personas)</option>
+            <option value="Salón Garden">Salón Garden (100 personas)</option>
+            <option value="Salón Corporate">Salón Corporate (80 personas)</option>
+            <option value="Salón Premium">Salón Premium (250 personas)</option>
+            <option value="Salón Vintage">Salón Vintage (120 personas)</option>
+          </select>
+          <div class="invalid-feedback">Por favor seleccioná un salón</div>
+        </div>
+
+        <!-- Tipo de Evento -->
+        <div class="mb-3">
+          <label for="tipoEvento" class="form-label">
+            Tipo de Evento <span class="required">*</span>
+          </label>
+          <select class="form-select" id="tipoEvento" required>
+            <option value="">Seleccioná el tipo de evento...</option>
+            <option value="Boda">Boda</option>
+            <option value="Cumpleaños 15">Cumpleaños de 15</option>
+            <option value="Cumpleaños Adulto">Cumpleaños Adulto</option>
+            <option value="Evento Corporativo">Evento Corporativo</option>
+            <option value="Aniversario">Aniversario</option>
+            <option value="Baby Shower">Baby Shower</option>
+            <option value="Graduación">Graduación</option>
+            <option value="Otro">Otro</option>
+          </select>
+          <div class="invalid-feedback">Por favor seleccioná el tipo de evento</div>
+        </div>
+
+        <!-- Fecha del Evento -->
+        <div class="mb-3">
+          <label for="fecha" class="form-label">
+            Fecha del Evento <span class="required">*</span>
+          </label>
+          <input 
+            type="date" 
+            class="form-control" 
+            id="fecha" 
+            required
+          >
+          <div class="invalid-feedback">Por favor seleccioná la fecha del evento</div>
+        </div>
+
+        <!-- Cantidad de Invitados -->
+        <div class="mb-3">
+          <label for="cantidadInvitados" class="form-label">
+            Cantidad Aproximada de Invitados <span class="required">*</span>
+          </label>
+          <input 
+            type="number" 
+            class="form-control" 
+            id="cantidadInvitados" 
+            placeholder="Ej: 100"
+            min="1"
+            required
+          >
+          <div class="invalid-feedback">Por favor ingresá la cantidad de invitados</div>
+        </div>
+
+        <!-- Servicios Adicionales -->
+        <div class="mb-3">
+          <label class="form-label">Servicios Adicionales de Interés</label>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="catering">
+            <label class="form-check-label" for="catering">
+              🍽️ Catering
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="decoracion">
+            <label class="form-check-label" for="decoracion">
+              🎨 Decoración
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="fotografia">
+            <label class="form-check-label" for="fotografia">
+              📸 Fotografía/Video
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="musica">
+            <label class="form-check-label" for="musica">
+              🎵 DJ/Música en vivo
+            </label>
+          </div>
+        </div>
+
+        <!-- Mensaje -->
+        <div class="mb-3">
+          <label for="mensaje" class="form-label">
+            Mensaje o Consulta Adicional
+          </label>
+          <textarea 
+            class="form-control" 
+            id="mensaje" 
+            rows="4" 
+            placeholder="Contanos más detalles sobre tu evento..."
+          ></textarea>
+        </div>
+
+        <!-- Botón de envío -->
+        <button type="submit" class="btn btn-enviar">
+          Enviar Consulta 📤
+        </button>
+
+      </form>
+
+      <!-- Información adicional -->
+      <div class="info-adicional">
+        <h5>📞 Contacto Directo</h5>
+        <div class="contacto-directo">
+          <strong>Teléfono:</strong> +54 11 1234-5678<br>
+          <strong>WhatsApp:</strong> +54 9 11 1234-5678<br>
+          <strong>Email:</strong> info@spathios.com<br>
+          <strong>Horario:</strong> Lun-Vie 9:00-19:00 | Sáb 10:00-14:00
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p class="mb-0">© 2025 Spathios - Alquiler de Salones | Todos los derechos reservados</p>
+      <p class="mt-2">Haciendo tus eventos inolvidables desde 2010 ✨</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="contacto.js"></script>
 
 </body>
 </html>

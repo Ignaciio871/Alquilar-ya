@@ -1,96 +1,187 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tienda Web - Carrito de Compras online</title>
-  
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
-  
-  <!-- Estilos personalizados -->
-  <link rel="stylesheet" href="stiles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salones Ya </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="stiles.css">
 </head>
-<body class="bg-gradient">
+<body>
 
-  <!-- MENÚ DE NAVEGACIÓN SUPERIOR -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">Alquilar Ya</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
-                    <li  class="nav-item"><a href="ingresar.html">ingresar</a></li>
-                </ul>
-                 <button id="verCarrito" class="btn btn-success d-flex align-items-center gap-2">
-                    <span class="fs-4">🛒</span> Carrito <span id="contadorCarrito" class="badge bg-light text-dark rounded-pill ms-1">0</span>
-                </button>
-            </div>
+  <!-- Notificación -->
+  <div id="notificacion" class="notificacion">
+    ✅ Salón agregado al carrito
+  </div>
+
+  <!-- Overlay -->
+  <div id="overlay" class="overlay" onclick="cerrarCarrito()"></div>
+
+  <!-- Panel del Carrito -->
+  <div id="carrito-panel" class="carrito-panel">
+    <div class="carrito-header">
+      <h3>🛒 Mi Carrito</h3>
+      <button class="btn-cerrar" onclick="cerrarCarrito()">✕</button>
+    </div>
+    
+    <div class="carrito-contenido">
+      <div id="items-carrito">
+        <div class="carrito-vacio">
+          <div class="carrito-vacio-icono">🛒</div>
+          <p>Tu carrito está vacío</p>
+          <small>Agregá salones para tu evento</small>
         </div>
-    </nav>
+      </div>
 
-
-  <!-- SECCIÓN HERO -->
-  <section id="hero" class="text-center p-5 bg-light shadow-sm rounded-3 my-4 container">
-    <h1 class="display-5 fw-bold text-primary mb-3">¡Prepara tu evento con nosotros!</h1>
-    <p class="lead text-success">Los mejores productos y ofertas especiales para ti</p>
-    <a href="#" class="btn btn-success btn-lg mt-3">¡Toca acá!</a>
-  </section>
-
-  <!-- Contenedor Productos -->
-  <main class="container my-5">
-    <section id="productosContainer" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-      <!-- Productos cargados dinámicamente -->
-    </section>
-  </main>
-
-  <!-- Modal Carrito -->
-  <div id="modalCarrito" class="modal fade" tabindex="-1" aria-labelledby="modalCarritoLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content rounded-4 shadow-lg">
-        <div class="modal-header bg-success text-white rounded-top">
-          <h5 class="modal-title" id="modalCarritoLabel">Tu Carrito</h5>
-          <button type="button" class="btn-close btn-close-white" id="cerrarCarrito" aria-label="Cerrar"></button>
+      <div id="resumen-carrito" style="display: none;">
+        <div class="carrito-resumen">
+          <div class="resumen-linea">
+            <span>Subtotal:</span>
+            <span id="subtotal">$0</span>
+          </div>
+          <div class="resumen-linea">
+            <span>Descuento (10%):</span>
+            <span id="descuento">-$0</span>
+          </div>
+          <div class="resumen-linea resumen-total">
+            <span>TOTAL:</span>
+            <span id="total">$0</span>
+          </div>
         </div>
-        <div class="modal-body">
-          <table class="table table-hover align-middle text-center">
-            <thead class="table-success">
-              <tr>
-                <th>Producto</th>
-                <th>Precio</th>
-                <th>Cantidad</th>
-                <th>Total</th>
-                <th>Acción</th>
-              </tr>
-            </thead>
-            <tbody id="carritoTabla"></tbody>
-          </table>
-          <h4 class="text-end fw-bold">Total: $<span id="totalCarrito">0</span></h4>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-success fw-semibold" id="finalizarCompra">Finalizar Compra</button>
-          <button class="btn btn-secondary fw-semibold" id="cerrarCarrito2">Cerrar</button>
-        </div>
+        
+        <button class="btn-finalizar" onclick="finalizarCompra()">
+          Finalizar Reserva 🎉
+        </button>
+        <button class="btn-vaciar" onclick="vaciarCarrito()">
+          Vaciar Carrito
+        </button>
       </div>
     </div>
   </div>
 
-  <!-- MENSAJE DE COMPRA -->
-  <div id="mensaje-compra" class="d-none position-fixed bottom-0 start-50 translate-middle-x mb-4 px-4 py-3 rounded shadow text-white fw-bold fs-5">
-    ¡Gracias por tu compra! 🛍️
-  </div>
+  <!-- MENÚ DE NAVEGACIÓN -->
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+      <a class="navbar-brand text-white logo-text" href="#hero">
+        🎉 SALONES YA
+      </a>
+      <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item"><a class="nav-link" href="#hero">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Ingresar</a></li>
+          <li class="nav-item"><a class="nav-link" href="#caracteristicas">Servicios</a></li>
+          <li class="nav-item ms-3">
+            <div class="carrito-icono" onclick="toggleCarrito()">
+              🛒
+              <span id="badge-carrito" class="badge-carrito">0</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-  <!-- PIE DE PÁGINA -->
-  <footer class="text-center p-4 bg-primary text-white mt-5">
-    © 2025 Tienda Web - Todos los derechos reservados
-  </footer>
+  <!-- HERO SECTION -->
+  <section id="hero">
+    <div class="container">
+      <h1>El Salón Perfecto para tu Evento Especial</h1>
+      <p>Bodas • Cumpleaños • Eventos Corporativos • Celebraciones</p>
+      <button onclick="document.getElementById('salones').scrollIntoView({behavior: 'smooth'})" class="btn-hero">
+        ¡Explorá Nuestros Salones!
+      </button>
+    </div>
+  </section>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <!-- SALONES DISPONIBLES -->
+  <section id="salones" class="salones-section">
+    
+  </section>
+
+  <!-- CARACTERÍSTICAS -->
+  <section id="caracteristicas" class="caracteristicas">
+    <div class="container">
+      <h2 class="section-title">¿Por Qué Elegirnos?</h2>
+      <div class="row">
+        <div class="col-md-4 caracteristica-item">
+          <div class="caracteristica-icon">🎵</div>
+          <h4>Sonido Profesional</h4>
+          <p>Equipos de audio de última generación para que tu evento suene perfecto</p>
+        </div>
+        <div class="col-md-4 caracteristica-item">
+          <div class="caracteristica-icon">💡</div>
+          <h4>Iluminación LED</h4>
+          <p>Sistema de luces personalizable para crear el ambiente ideal</p>
+        </div>
+        <div class="col-md-4 caracteristica-item">
+          <div class="caracteristica-icon">🍽️</div>
+          <h4>Catering Opcional</h4>
+          <p>Servicio de comida y bebida con menús personalizados</p>
+        </div>
+        <div class="col-md-4 caracteristica-item">
+          <div class="caracteristica-icon">🅿️</div>
+          <h4>Estacionamiento</h4>
+          <p>Amplio espacio de estacionamiento gratuito para tus invitados</p>
+        </div>
+        <div class="col-md-4 caracteristica-item">
+          <div class="caracteristica-icon">❄️</div>
+          <h4>Climatización</h4>
+          <p>Aire acondicionado y calefacción en todos los salones</p>
+        </div>
+        <div class="col-md-4 caracteristica-item">
+          <div class="caracteristica-icon">🎨</div>
+          <h4>Decoración</h4>
+          <p>Asesoramiento y servicio de decoración personalizada</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO CONTACTO RÁPIDO -->
+  <section>
+    <div class="container">
+      <div class="info-contacto-rapido">
+        <h3 class="text-center mb-4">📞 ¿Tenés dudas? Contactanos</h3>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="contacto-item">
+              <strong>📱 Teléfono:</strong> +54 11 2257-1130
+            </div>
+            <div class="contacto-item">
+              <strong>📧 Email:</strong> ignacioacuna108@gmail.com
+            </div>
+            <div class="contacto-item">
+              <strong>📍 Dirección:</strong> Av. Principal 1234, Pilar, Buenos Aires
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="contacto-item">
+              <strong>🕒 Horario de atención:</strong><br>
+              Lunes a Viernes: 9:00 - 19:00<br>
+              Sábados: 10:00 - 14:00
+            </div>
+            <div class="contacto-item">
+              <strong>💬 WhatsApp:</strong> +54 9 11 2257 1130
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-center">
+    <div class="container">
+      <p class="mb-0">© 2025 Salones Ya - Alquiler de Salones | Todos los derechos reservados</p>
+      <p class="mt-2">Haciendo tus eventos inolvidables desde 2025 ✨</p>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
   <script src="javascript.js"></script>
+  
+  </footer>
 </body>
 </html>
