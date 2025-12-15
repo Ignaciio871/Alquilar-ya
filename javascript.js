@@ -945,8 +945,49 @@ document.addEventListener('DOMContentLoaded', function() {
   // ==========================
   // SMOOTH SCROLL
   // ==========================
+  // ==========================
+  // SMOOTH SCROLL
+  // ==========================
   
   // Buscar TODOS los enlaces que empiezan con #
-  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-    
-    // A cada enlace
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // ==========================
+  // INICIAR LA APLICACIÓN
+  // ==========================
+  
+  console.log("🚀 Iniciando aplicación...");
+  
+  // 1. Cargar salones desde Firebase
+  cargarSalonesDesdeFirebase();
+  
+  // 2. Cargar carrito guardado (si existe)
+  db.collection('carritos').doc('usuario-temporal').get()
+    .then((doc) => {
+      if (doc.exists && doc.data().items) {
+        carrito = doc.data().items;
+        console.log("Carrito recuperado de Firebase:", carrito);
+        actualizarCarrito();
+      } else {
+        console.log("No hay carrito guardado");
+      }
+    })
+    .catch((error) => {
+      console.error("Error al cargar carrito guardado:", error);
+    });
+  
+  console.log("✅ Aplicación iniciada");
+
+}); // <--- CIERRA el addEventListener('DOMContentLoaded')
+ 
