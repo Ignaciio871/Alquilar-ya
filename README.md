@@ -1,27 +1,27 @@
-🎉 Sistema de Reserva de Salones para Eventos
+ Sistema de Reserva de Salones para Eventos
 Sistema web completo para la gestión y reserva de salones para eventos, con carrito de compras integrado y almacenamiento en Firebase.
-📋 Descripción
+ Descripción
 Aplicación web moderna y responsive que permite a los usuarios explorar diferentes salones para eventos, ver información detallada de cada uno, agregar múltiples reservas al carrito y finalizar la compra. Toda la información se sincroniza en tiempo real con Firebase Firestore.
-✨ Características Principales
-🏢 Catálogo de Salones
+ Características Principales
+ Catálogo de Salones
 
 Vista en tarjetas con diseño moderno y atractivo
 Información completa de cada salón:
 
-👥 Capacidad de personas
-📐 Metros cuadrados
-📍 Ubicación exacta
-🕐 Horarios disponibles
-🎉 Tipo de eventos (bodas, corporativos, cumpleaños, etc.)
-✨ Características detalladas
-🎁 Servicios incluidos
-🔧 Equipamiento disponible
+ Capacidad de personas
+ Metros cuadrados
+ Ubicación exacta
+ Horarios disponibles
+ Tipo de eventos (bodas, corporativos, cumpleaños, etc.)
+ Características detalladas
+ Servicios incluidos
+ Equipamiento disponible
 
 
 Imágenes de alta calidad
 Precios claramente visibles
 
-🛒 Carrito de Compras Avanzado
+ Carrito de Compras Avanzado
 
 Panel lateral deslizante con animaciones suaves
 Información detallada de cada producto en el carrito:
@@ -44,7 +44,7 @@ Badge animado que muestra cantidad de items
 Persistencia en Firebase
 Notificaciones visuales al agregar productos
 
-💾 Integración con Firebase
+ Integración con Firebase
 
 Firestore Database para almacenar:
 
@@ -56,7 +56,7 @@ Pedidos finalizados
 Sincronización en tiempo real
 Estructura de datos optimizada
 
-🎨 Diseño y UX
+ Diseño y UX
 
 Interfaz moderna con gradientes y animaciones
 Totalmente responsive (móvil, tablet, desktop)
@@ -65,7 +65,7 @@ Scroll suave entre secciones
 Notificaciones no intrusivas
 Overlay con blur para el carrito
 
-🛠️ Tecnologías Utilizadas
+ Tecnologías Utilizadas
 
 HTML5 - Estructura semántica
 CSS3 - Estilos avanzados con:
