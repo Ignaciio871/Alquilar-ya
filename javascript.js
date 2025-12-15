@@ -990,4 +990,15 @@ document.addEventListener('DOMContentLoaded', function() {
   console.log("✅ Aplicación iniciada");
 
 }); // <--- CIERRA el addEventListener('DOMContentLoaded')
- 
+ // ==========================
+  // VARIABLES GLOBALES
+  // ==========================
+  
+  // Array (lista) vacía para guardar lo que el usuario pone en el carrito
+  let carrito = [];
+  
+  // Array (lista) vacía para guardar los salones que traemos de Firebase
+  let salones = [];
+  
+  // Stock máximo permitido por salón
+  const STOCK_MAXIMO = 3;
