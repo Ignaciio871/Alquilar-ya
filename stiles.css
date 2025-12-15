@@ -187,6 +187,88 @@ body {
   margin-bottom: 1rem;
 }
 
+/* Estilos para información detallada en las tarjetas de salones */
+.salon-tipo-evento {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 0.8rem;
+}
+
+.salon-info-detallada {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.info-item:last-child {
+  margin-bottom: 0;
+}
+
+.info-icono {
+  font-size: 1.2rem;
+  min-width: 25px;
+}
+
+.salon-caracteristicas,
+.salon-servicios,
+.salon-equipamiento {
+  background: #fff;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.caracteristicas-titulo,
+.servicios-titulo,
+.equipamiento-titulo {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #667eea;
+  margin: 0 0 0.6rem 0;
+}
+
+.caracteristicas-lista,
+.servicios-lista,
+.equipamiento-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.caracteristicas-lista li,
+.servicios-lista li,
+.equipamiento-lista li {
+  font-size: 0.85rem;
+  color: #666;
+  padding: 0.2rem 0;
+  line-height: 1.4;
+}
+
+.mas-caracteristicas,
+.mas-servicios,
+.mas-equipamiento {
+  color: #667eea !important;
+  font-weight: 600;
+  font-style: italic;
+  margin-top: 0.3rem;
+}
+
 .precio-salon {
   font-size: 1.8rem;
   font-weight: bold;
@@ -303,7 +385,303 @@ body {
   opacity: 0.7;
 }
 
-/* Items del carrito MEJORADOS */
+/* ============================================
+   NUEVOS ESTILOS PARA CARRITO CON DETALLES
+   ============================================ */
+
+/* Items del carrito con información detallada */
+.item-carrito-detallado {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  animation: slideInDetailed 0.4s ease;
+}
+
+@keyframes slideInDetailed {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.item-carrito-detallado:hover {
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+  border-color: #667eea;
+  transform: translateY(-3px);
+}
+
+/* Header del item (imagen y nombre) */
+.item-header {
+  display: flex;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+  align-items: flex-start;
+}
+
+.item-img-grande {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  flex-shrink: 0;
+}
+
+.item-info-principal {
+  flex: 1;
+}
+
+.item-nombre-destacado {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 0.8rem 0;
+  line-height: 1.3;
+}
+
+.item-precio-unitario {
+  color: #666;
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+}
+
+.item-precio-unitario strong {
+  color: #555;
+}
+
+/* Sección de detalles del salón */
+.item-detalles {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 1.2rem;
+  border-radius: 10px;
+  margin-bottom: 1.2rem;
+  border-left: 4px solid #667eea;
+}
+
+.detalle-item {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+  align-items: flex-start;
+}
+
+.detalle-item:last-child {
+  margin-bottom: 0;
+}
+
+.detalle-icono {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  width: 30px;
+  text-align: center;
+}
+
+.detalle-item > div {
+  flex: 1;
+}
+
+.detalle-item strong {
+  display: block;
+  color: #333;
+  margin-bottom: 0.3rem;
+  font-size: 0.95rem;
+}
+
+.detalle-item p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.subtotal-item {
+  font-size: 1.3rem !important;
+  font-weight: bold !important;
+  color: #28a745 !important;
+  margin-top: 0.3rem;
+}
+
+/* Controles de cantidad y acciones mejorados */
+.item-acciones-detalladas {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid #e9ecef;
+}
+
+.cantidad-control-mejorado {
+  flex: 1;
+  min-width: 200px;
+}
+
+.cantidad-control-mejorado label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.botones-cantidad {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  background: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: fit-content;
+}
+
+.btn-cantidad {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.btn-cantidad:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.5);
+}
+
+.btn-cantidad:active {
+  transform: scale(0.95);
+}
+
+.cantidad-display {
+  font-weight: bold;
+  min-width: 40px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.btn-eliminar-mejorado {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 3px 10px rgba(255, 107, 107, 0.3);
+  white-space: nowrap;
+}
+
+.btn-eliminar-mejorado:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.5);
+  background: linear-gradient(135deg, #ee5a6f 0%, #dc3545 100%);
+}
+
+.btn-eliminar-mejorado:active {
+  transform: translateY(0);
+}
+
+/* Separador entre items */
+.item-separador {
+  border: 0;
+  border-top: 2px dashed #e9ecef;
+  margin: 1.5rem 0;
+  opacity: 0.5;
+}
+
+/* Títulos de secciones dentro del item */
+.detalles-titulo {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #667eea;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #667eea;
+}
+
+/* Estilos para características, servicios y equipamiento */
+.item-caracteristicas,
+.item-servicios,
+.item-equipamiento {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border-left: 3px solid #28a745;
+}
+
+.lista-caracteristicas,
+.lista-servicios,
+.lista-equipamiento {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.5rem;
+}
+
+.lista-caracteristicas li,
+.lista-servicios li,
+.lista-equipamiento li {
+  color: #555;
+  font-size: 0.9rem;
+  padding: 0.3rem 0;
+}
+
+.item-tipo-evento {
+  color: #666;
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+  padding: 0.5rem;
+  background: #f8f9fa;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.item-tipo-evento strong {
+  color: #555;
+}
+
+.item-precio-total {
+  background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 1rem 0;
+  border: 2px solid #28a745;
+}
+
+/* ============================================
+   FIN DE ESTILOS PARA CARRITO CON DETALLES
+   ============================================ */
+
+/* Items del carrito BÁSICOS (por si necesitas mantener compatibilidad) */
 .item-carrito {
   background: white;
   border-radius: 15px;
@@ -374,39 +752,6 @@ body {
   background: #f8f9fa;
   padding: 0.3rem;
   border-radius: 25px;
-}
-
-.btn-cantidad {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border: none;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 1.1rem;
-  transition: all 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.btn-cantidad:hover {
-  transform: scale(1.15);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-}
-
-.btn-cantidad:active {
-  transform: scale(0.95);
-}
-
-.cantidad-display {
-  font-weight: bold;
-  min-width: 35px;
-  text-align: center;
-  font-size: 1.1rem;
-  color: #333;
 }
 
 .btn-eliminar {
@@ -661,6 +1006,7 @@ footer {
   background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
 }
 
+/* Responsive */
 @media (max-width: 768px) {
   .carrito-panel {
     width: 100%;
@@ -672,5 +1018,33 @@ footer {
     left: 10px;
     font-size: 1rem;
     padding: 1rem 1.5rem;
+  }
+  
+  /* Ajustes para items detallados en móvil */
+  .item-header {
+    flex-direction: column;
+  }
+  
+  .item-img-grande {
+    width: 100%;
+    height: 200px;
+  }
+  
+  .item-acciones-detalladas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .cantidad-control-mejorado {
+    width: 100%;
+  }
+  
+  .botones-cantidad {
+    justify-content: center;
+  }
+  
+  .btn-eliminar-mejorado {
+    width: 100%;
+    justify-content: center;
   }
 }
